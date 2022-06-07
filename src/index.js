@@ -3,11 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Invoices from './pages/Invoices';
+import Expensess from './pages/Expenses';
+import NotFound from './pages/NotFound';
+import InvoicesValue from './pages/InvoicesValue';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path= '/' element = {<App />} > 
+          <Route path='invoices' element = {<Invoices />}>
+            <Route path=':invoicesId' element = {<InvoicesValue />} />
+            {/* thêm 1 biến Id vào đuôi */}
+          </Route>
+          <Route path = 'expenses' element = {<Expensess />} />
+          {/* Không đường dẫn {đường dẫn chung} */}
+          <Route path='*' element = {<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
