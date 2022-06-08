@@ -8,13 +8,14 @@ const Invoices = () => {
   return (
     <main>
         <h2>invoices</h2>
-        <div style={{display: 'flex', borderRight: '1px solid' }}>
+        <Link to={'new'}>Tạo Mới</Link>
+        <div style={{display: 'flex', borderTop: '0px' }}>
           <nav>
             {
               Invoice.map((invoce) => (
                 <Link 
                   style={{display: 'block', margin: '1rem'}} 
-                  to={`/invoices/${invoce.id}`} 
+                  to={invoce.id.toString()} 
                   key= {invoce.id}
                   >
                     {invoce.name}

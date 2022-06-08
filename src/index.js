@@ -8,6 +8,7 @@ import Invoices from './pages/Invoices';
 import Expensess from './pages/Expenses';
 import NotFound from './pages/NotFound';
 import InvoicesValue from './pages/InvoicesValue';
+import NewInvoice from './pages/NewInvoice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,9 @@ root.render(
       <Routes>
         <Route path= '/' element = {<App />} > 
           <Route path='invoices' element = {<Invoices />}>
+            <Route index element = {<h2 style={{padding: '1rem'}}>Index</h2>} />
             <Route path=':invoicesId' element = {<InvoicesValue />} />
+            <Route path='new' element= {<NewInvoice />} />
             {/* thêm 1 biến Id vào đuôi */}
           </Route>
           <Route path = 'expenses' element = {<Expensess />} />
